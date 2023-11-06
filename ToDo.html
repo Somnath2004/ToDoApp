@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ToDoApp</title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			display: flex;
+		}
+		.tasklist {
+			width: 50%;
+			background-color: lightgrey;
+		}
+		.tasklist h1 {
+			font-family: sans-serif;
+			font-weight: 100;
+			margin-bottom: 10px;
+		}
+		.tasklist p {
+			font-size: 18px;
+			margin-bottom:2rem;
+		}
+		.task{
+			font-size: 2rem;
+			font-family: Arial, Helvetica, sans-serif;
+			margin: 1rem;
+		}
+		
+     #submit1{
+	font-size: 4rem;
+	color: grey;
+	border: none;
+	border-radius: 2rem;
+     }
+		.inputbox {
+			width: 50%;
+			height: 45rem;
+		}
+		.container #input1 {
+			font-size: 50px;
+			color: grey;
+			border: none;
+			outline:none ;
+			border:none ;
+		}
+	</style>
+	<body>
+		<div class="container">
+			<div class="tasklist">
+				<h1>Task List</h1>
+				<p>
+					Add tasks to your by typing to the right and press- int enter. You may
+					then view pending tasks belows.
+				</p>
+				<div class="tasklistin">
+				<div class="task">Start Task</div>
+			</div>
+			</div>
+			<div class="inputbox">
+				<input
+					type="text"
+					name="input1"
+					id="input1"
+					placeholder="I need to.."
+				/>
+				<button type="submit" id="submit1">&plus;</button>
+			</div>
+		</div>
+		<script>
+		let i = 0;
+			let submitevent = document.querySelector("#submit1");
+			submitevent.addEventListener("click", function () {
+				let creatediv = document.createElement("div");
+				let span1 = document.createElement("button");
+				let span2 = document.createElement("button");
+				let p = document.createElement("p");
+				span1.innerHTML="&plus;";
+				span2.innerHTML="&cross;";
+				creatediv.append(span1,span2);
+				creatediv.innerText = document.querySelector("#input1").value;
+				creatediv.innerText = i++ +" Task "+ creatediv.innerText;
+				creatediv.classList="task"
+				document.querySelector("body .container .tasklist .tasklistin").append(creatediv);
+			});
+		</script>
+	</body>
+</html>
